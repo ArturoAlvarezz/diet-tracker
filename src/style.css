@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scanline overlay */
+.scanline-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.015) 2px,
+    rgba(0, 255, 65, 0.015) 4px
+  );
+  z-index: 50;
+}
+
+/* Glow card */
+.card-glow {
+  background: rgba(17, 17, 40, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(123, 47, 247, 0.2);
+  box-shadow: 0 0 15px rgba(123, 47, 247, 0.1);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-glow:hover {
+  border-color: rgba(123, 47, 247, 0.4);
+  box-shadow: 0 0 25px rgba(123, 47, 247, 0.25);
+}
+
+/* Progress bar glow */
+.progress-glow {
+  box-shadow: 0 0 10px rgba(123, 47, 247, 0.4);
+}
+
+/* Terminal text effect */
+.terminal-text {
+  text-shadow: 0 0 5px rgba(123, 47, 247, 0.5);
+}
+
+/* Cursor blink */
+.cursor-blink::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #7b2ff7;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
+
+/* Custom utility */
+.border-glow {
+  border: 1px solid rgba(123, 47, 247, 0.3);
+}
